@@ -178,7 +178,7 @@ function bigShoeRebounds() {
     Object.keys(gameData[team].players).forEach((playerName) => {
       if (
         !playerWithLargestShoe ||
-        playerWithLargestShoe.show < gameData[team].players[playerName].shoe
+        playerWithLargestShoe.shoe < gameData[team].players[playerName].shoe
       ) {
         playerWithLargestShoe = gameData[team].players[playerName];
       }
@@ -307,7 +307,7 @@ function doesLongNameStealATon() {
     });
     for (const team in gameData) {
       for (const playerName in gameData[team].players) {
-        if (stealCount < gameData[team].players[playerName]) {
+        if (stealCount < gameData[team].players[playerName].steals) {
           return false;
         }
       }

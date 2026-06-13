@@ -125,6 +125,11 @@ describe("Basketball Stats", function () {
         .returns(["Alan Anderson"]); //One player with the longest name has the most steals so setting the mock to use another player for false test
       expect(doesLongNameStealATon()).to.equal(false);
     });
+    it("should return false if multiple players are tied for longest name and neither has the most steals", () => {
+      sandbox
+        .stub(window, "getPlayersWithLongestName")
+        .returns(["Alan Anderson", "Ben Gordon"]); //One player with the longest name has the most steals so setting the mock to use two other players for multi-false test
+    });
     it("should return true if the player with the longest name has the most steals", () => {
       sandbox
         .stub(window, "getPlayersWithLongestName")
